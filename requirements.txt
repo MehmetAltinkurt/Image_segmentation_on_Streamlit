@@ -6,4 +6,4 @@ opencv-python==4.8.1.78
 python-multipart==0.0.5 
 aiofiles==0.4.0
 transformers==4.34.1
-steamlit==1.28.0
+streamlit==1.28.0
