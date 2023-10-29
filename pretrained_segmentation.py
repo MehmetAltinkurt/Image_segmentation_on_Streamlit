@@ -98,7 +98,7 @@ if st.button("Get segmentation map"):
         st.write("inser image!")
 
 
-
+"""
 
 image = Image.open(requests.get(url, stream=True).raw)
 
@@ -129,11 +129,7 @@ color_seg = color_seg[..., ::-1]
 img = np.array(image) * 0.5 + color_seg * 0.5
 img = img.astype(np.uint8)
 
-plt.figure(figsize=(15, 10))
-plt.imshow(img)
-plt.show()
-
-
+"""
 
 
 
