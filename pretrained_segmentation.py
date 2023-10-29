@@ -4,7 +4,6 @@ from PIL import Image
 import requests
 import torch
 import numpy as np
-import matplotlib.pyplot as plt
 import streamlit as st
 
 
@@ -96,40 +95,6 @@ if st.button("Get segmentation map"):
 
     else:
         st.write("inser image!")
-
-
-"""
-
-image = Image.open(requests.get(url, stream=True).raw)
-
-inputs = processor(images=image, return_tensors="pt")
-outputs = model(**inputs)
-logits = torch.nn.functional.interpolate(outputs.logits.detach().cpu(),
-                size=image.size[::-1], # (height, width)
-                mode='bilinear',
-                align_corners=False)
-
-print(logits.shape)
-
-seg = logits.argmax(dim=1)[0]
-
-print("segshape:",seg.shape)
-
-
-color_seg = np.zeros((seg.shape[0], seg.shape[1], 3), dtype=np.uint8) # height, width, 3
-palette = np.array(ade_palette())
-
-
-for label, color in enumerate(palette):
-    color_seg[seg == label, :] = color
-# Convert to BGR
-color_seg = color_seg[..., ::-1]
-
-# Show image + mask
-img = np.array(image) * 0.5 + color_seg * 0.5
-img = img.astype(np.uint8)
-
-"""
 
 
 
