@@ -71,7 +71,7 @@ if st.button("Get segmentation map"):
     if input_image:
         st.header("Original image")
         st.image(input_image)
-        image=Image.open(input_image)
+        image=Image.open(input_image).convert("RGB")
         inputs = processor(images=image, return_tensors="pt")
         outputs = model(**inputs)
         logits = torch.nn.functional.interpolate(outputs.logits.detach().cpu(),
